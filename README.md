@@ -1,13 +1,30 @@
 # Getting Started with Create React App
 
-[ Redux 사용법 ]
+### [ directory ]
+```sh
+│  README.md
+├─public
+├─src
+│  ├─api            // axios wrap
+│  ├─assets         // cdn 전 or 개발 이미지
+│  ├─components     // 공용 component
+│  ├─pages          // 페이지 단위 component
+│  ├─store          // redux store
+│  ├─style          // 공용 css
+│  ├─translations   // 번역관련
+│  └─
+└─
+```
+
+
+### [ Redux 사용법 ]
 step 1 : action 정의
 파일 src/store/modules/{이름}/constants.ts
 ``` typescript
     export const CHANGE_TEST_MODE = 'test/CHANGE_TEST_MODE'; 
 ```
 
-step 2 : action 만들기
+step 2 : action 만들기 
 파일 src/store/modules/{이름}/actions.ts
 ``` typescript
     export interface ChangeTestModeAction {
