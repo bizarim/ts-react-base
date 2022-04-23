@@ -1,9 +1,6 @@
-import {
-    CHANGE_THEME_MODE,
-} from './constants';
-import { ChangeThemeModeAction } from './actions';
+import { CHANGE_THEME_MODE, ChangeThemeModeAction } from './actions';
 
-// [ Redux 사용법 ] step 4: reducer 만들기
+// [ Redux 사용법 ] step 2: reducer 만들기
 
 export interface ThemeState {
     mode: string | 'light' | 'dark';

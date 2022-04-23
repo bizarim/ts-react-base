@@ -1,9 +1,8 @@
-import { ToastPayload, ToastAction } from './actions';
 import {
-    TOAST_DATA,
-    TOAST_DELETE,
-    TOAST_DELETE_BY_INDEX,
-} from './constants';
+    TOAST_DATA, TOAST_DELETE, TOAST_DELETE_BY_INDEX, 
+    ToastPayload, ToastAction
+} from './actions';
+
 
 export interface ToastState {
     toasts: ToastPayload[];

@@ -1,34 +1,35 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import { createBrowserHistory } from 'history';
 import { routerMiddleware } from 'react-router-redux';
-import createSagaMiddleware from 'redux-saga';
+import persistStore from 'redux-persist/es/persistStore';
 
-// [ Redux 사용법 ] step 6: store 생성 시 rootReducer 등록
-// [ Redux-saga 사용법 ] step 3: store 생성 시 rootSaga 등록
+// [ Redux 사용법 ] step 4: store 생성 시 rootReducer 등록
 
-import { rootReducer } from './rootReducer';
-import { rootSaga } from './rootSaga';
+import persistReducer from './rootReducer';
 
 const history = createBrowserHistory();
-const sagaMiddleware = createSagaMiddleware();
 // const logger = createLogger({ collapsed: true });
 
 // eslint-disable-next-line
 const composeEnhancer: typeof compose = (window as any)
     .__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
+/**
+ * store 생성 및 설정
+ *   - store
+ *   - persist: react 새로고침 시 state cashing
+ * @returns 
+ */
 export const configureStore = () => {
     const store = createStore(
-        rootReducer,
+        persistReducer,
         composeEnhancer(
             applyMiddleware(
-                sagaMiddleware,
                 routerMiddleware(history),
             ),
         ),
     );
+    const persistor = persistStore(store);
 
-    sagaMiddleware.run(rootSaga);
-
-    return store;
+    return { store, persistor };
 };

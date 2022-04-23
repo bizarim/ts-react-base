@@ -1,12 +1,7 @@
-import {
-    CHANGE_THEME_MODE,
-} from './constants';
-// [ Redux 사용법 ] step 2: action 만들기
+// [ Redux 사용법 ] step 1 : action 정의
+export const CHANGE_THEME_MODE = 'theme/CHANGE_THEME_MODE';
 
-export interface ChangeThemeModeAction {
-    type: string;
-    payload: string;
-}
+export interface ChangeThemeModeAction { type: string; payload: string; }
 
 export const changeThemeMode = (payload: string): ChangeThemeModeAction => ({
     type: CHANGE_THEME_MODE,

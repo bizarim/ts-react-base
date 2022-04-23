@@ -1,6 +1,4 @@
-import {
-    CHANGE_LANGUAGE,
-} from './constants';
+export const CHANGE_LANGUAGE = 'i18n/CHANGE_LANGUAGE';
 
 export interface ChangeLanguageAction {
     type: string;

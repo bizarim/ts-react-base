@@ -1,11 +1,5 @@
-import {
-    CHANGE_LANGUAGE,
-} from './constants';
-
 import { languageMap } from '../../../../translations';
-import {
-    ChangeLanguageAction,
-} from './actions';
+import { CHANGE_LANGUAGE, ChangeLanguageAction } from './actions';
 
 export interface I18nState {
     lang: string;
